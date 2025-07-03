@@ -25,6 +25,7 @@ public class S2 {
         }, "Thread-B");
         Thread thread3 = new Thread(() -> {
             for (int i = 1; i <= 4; i++) {
+                if (i > 2) break;
                 System.out.println(Thread.currentThread().getName() + ": Step " + i);
                 try {
                     Thread.sleep(500);
@@ -46,13 +47,11 @@ public class S2 {
 }
 
 //output:
-    //Thread-C: Step 1
-    //Thread-B: Step 1
-    //Thread-A: Step 1
-    //Thread-A: Step 2
-    //Thread-C: Step 2
-    //Thread-B: Step 2
-    //Thread-C: Step 3
-    //Thread-B: Step 3
-    //Thread-C: Step 4
-    //main: All threads completed
+//    Thread-C: Step 1
+//    Thread-A: Step 1
+//    Thread-B: Step 1
+//    Thread-A: Step 2
+//    Thread-C: Step 2
+//    Thread-B: Step 2
+//    Thread-B: Step 3
+//    main: All threads completed
